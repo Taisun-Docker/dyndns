@@ -5,7 +5,9 @@ http://taisun.io
 ### QuickStart
 
 You can generate a custom Taisun.io url here: 
-https://api.taisun.io/prod/genurl
+https://www.taisun.io
+
+Simple login and click on Taisun DynDNS. 
 
 On a Docker enabled host run the following command from cli:
 ```
