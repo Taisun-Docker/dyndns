@@ -9,11 +9,9 @@ MAINTAINER Ryan Kuba <ryankuba@gmail.com>
 RUN apk add --update curl \
 && rm -rf /var/cache/apk/*
 
-# Add cron files and script
-ADD crontab /crontab.txt
+# Add loop for pinging Taisun
 ADD pingtaisun.sh /pingtaisun.sh
 
 RUN chmod +x /pingtaisun.sh
-RUN /usr/bin/crontab /crontab.txt
 
-CMD ["/usr/sbin/crond", "-f"]
+CMD ["/pingtaisun.sh"]
