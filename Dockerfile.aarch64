@@ -1,0 +1,19 @@
+#Dockerfile for Taisun dyndns updater
+#2017
+#Use alpine base image
+FROM alpine@sha256:30ebbffae9ba098b9c345b890c6610aa8422f067754d7e707978a954f3b7a601
+
+MAINTAINER Ryan Kuba <ryankuba@gmail.com>
+
+# Add qemu to build on x86_64 systems
+COPY qemu-aarch64-static /usr/bin
+
+# Install dependencies
+RUN apk add --no-cache --update curl 
+
+# Add loop for pinging Taisun
+ADD pingtaisun.sh /pingtaisun.sh
+
+RUN chmod +x /pingtaisun.sh
+
+CMD ["/pingtaisun.sh"]
