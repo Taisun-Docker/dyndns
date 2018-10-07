@@ -12,8 +12,8 @@ COPY qemu-arm-static /usr/bin
 RUN apk add --no-cache --update curl 
 
 # Add loop for pinging Taisun
-ADD pingtaisun.sh /pingtaisun.sh
+COPY ./pingtaisun.sh /pingtaisun.sh
 
 RUN chmod +x /pingtaisun.sh
 
-CMD ["/pingtaisun.sh"]
+CMD ["/bin/sh", "/pingtaisun.sh"]
